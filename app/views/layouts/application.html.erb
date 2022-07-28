@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iimon-test</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+      <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <% if flash[:alert] %>
+      <p class="alert"><%= alert %></p>
+  <% end %>
+
+  <%= link_to root_path, class: "navbar-item" do %>
+    <h1>iimon-testB</h1>
+  <% end %>
+
+  <% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "投稿する", new_micropost_path %>
+  <% else %>
+  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <% end %>
+  
+
+    <%= yield %>
+  </body>
+</html>

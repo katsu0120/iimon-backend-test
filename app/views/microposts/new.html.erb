@@ -1,0 +1,16 @@
+<section class="section">
+  <div>
+    <div>
+      <div >
+        <%= form_for @micropost do |f| %>
+          <div class="field">
+            <%= f.text_field :content, class: "input" %>
+          </div>
+
+
+          <%= f.submit '投稿', class: "button is-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
